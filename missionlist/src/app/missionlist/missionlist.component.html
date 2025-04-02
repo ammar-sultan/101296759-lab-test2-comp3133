@@ -1,0 +1,56 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <a routerLink="/" class="navbar-brand">Ammar Sultan's Lab Test 02</a>
+    <a routerLink="/filter" class="filter-button">Filters</a>
+  </div>
+</nav>
+
+<!-- Main Page Content -->
+<div class="page-container">
+  <header class="page-header">
+    <h1>SpaceX Mission Launch List</h1>
+  </header>
+
+  <div class="mission-grid">
+    <div *ngFor="let mission of paginatedMissions" class="mission-card">
+      <a routerLink="/{{ mission.flight_number }}" class="mission-link">
+        <!-- Mission Patch Image on the Left -->
+        <img
+          src="{{ mission.links.mission_patch_small }}"
+          alt="{{ mission.mission_name }} Patch"
+          class="mission-patch-small"
+        />
+        <!-- Mission Info on the Right -->
+        <div class="mission-info">
+          <h2>{{ mission.mission_name }}</h2>
+          <p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
+          <p>
+            <strong>Successful Launch:</strong>
+            {{ mission.launch_success ? "Yes" : "No" }}
+          </p>
+          <p>
+            <strong>Landing Intent:</strong>
+            {{
+              mission.rocket.first_stage.cores[0].landing_intent ? "Yes" : "No"
+            }}
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="paginator-container">
+    <mat-paginator
+      [length]="listMission.length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[9]"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <p>© {{ currentYear }} SpaceX Explorer. Designed By 101296759</p>
+</footer>

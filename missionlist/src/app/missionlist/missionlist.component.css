@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+/* Global Settings */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #0b0c10;
+  font-family: "Orbitron", sans-serif;
+  color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+  background: #1f2833;
+  padding: 10px 20px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+.filter-button {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid #ffcc00;
+  color: #ffcc00;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.filter-button:hover {
+  background: #ffcc00;
+  color: #000;
+}
+
+/* Page Container */
+.page-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 5px;
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  /* padding-bottom: 15px; */
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  color: #ffcc00;
+  margin: 0;
+}
+
+/* Mission Grid Layout (3 columns) */
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Individual Mission Cards */
+.mission-card {
+  background: linear-gradient(135deg, #14181e, #1f2430);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Mission Link using Flex for horizontal layout */
+.mission-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: inherit;
+  padding: 15px;
+}
+
+/* Mission Patch Image Styling */
+.mission-patch-small {
+  width: 150px;
+  height: auto;
+  margin-right: 20px;
+}
+
+/* Mission Info Styling */
+.mission-info {
+  flex: 1;
+}
+
+.mission-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #ffcc00;
+}
+
+.mission-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #c5c6c7;
+}
+
+.mission-info strong {
+  color: #ffcc00;
+}
+
+/* Paginator Container */
+.paginator-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Footer */
+.page-footer {
+  background: #1f2833;
+  color: #c5c6c7;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: 15px;
+}

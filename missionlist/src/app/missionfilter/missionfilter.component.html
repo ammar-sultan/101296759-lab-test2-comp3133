@@ -1,0 +1,131 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <a routerLink="/" class="navbar-brand">Ammar Sultan's Lab Test 02</a>
+    <a routerLink="/" class="filter-button">Home</a>
+  </div>
+</nav>
+
+<!-- Main Page Container -->
+<div class="page-container">
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <h1>SpaceX Launch Programs</h1>
+      <input
+        type="text"
+        placeholder="Search..."
+        class="search-bar"
+        [(ngModel)]="searchTerm"
+        (input)="searchMissions()"
+      />
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+    <!-- Filter Sidebar -->
+    <aside class="filter-section-wrapper">
+      <div class="card filter-card">
+        <div class="card-body">
+          <div class="filter-header-wrap">
+            <h3>Filters</h3>
+            <a (click)="removeFilter()">Clear</a>
+          </div>
+          <div class="filter-sub-title">
+            <h4>Launch Year</h4>
+          </div>
+          <ul class="filter-buttons">
+            <li
+              *ngFor="let year of launchYears; let i = index"
+              [ngClass]="launchYearSelectedIndex === i ? 'active' : ''"
+              (click)="missionFilter(i, year)"
+            >
+              {{ year }}
+            </li>
+          </ul>
+          <div class="filter-sub-title">
+            <h4>Successful Launch</h4>
+          </div>
+          <ul class="filter-buttons">
+            <li (click)="successLaunchFilter(true)">True</li>
+            <li (click)="successLaunchFilter(false)">False</li>
+          </ul>
+          <div class="filter-sub-title">
+            <h4>Successful Land</h4>
+          </div>
+          <ul class="filter-buttons">
+            <li (click)="successLandingFilter(true)">True</li>
+            <li (click)="successLandingFilter(false)">False</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mission Grid -->
+    <section class="mission-grid">
+      <ng-container
+        *ngIf="
+          paginatedMissions && paginatedMissions.length > 0;
+          else noMissions
+        "
+      >
+        <div *ngFor="let data of paginatedMissions" class="mission-card">
+          <a routerLink="/{{ data.flight_number }}" class="mission-link">
+            <div class="mission-info">
+              <figure>
+                <img
+                  src="{{ data.links.mission_patch_small }}"
+                  alt="{{ data.rocket.rocket_name }}"
+                  width="120"
+                  height="120"
+                />
+              </figure>
+              <h2>{{ data.mission_name }} #{{ data.flight_number }}</h2>
+              <p>
+                <strong>Mission Ids:</strong>
+                {{ getMissionIds(data) }}
+              </p>
+              <p><strong>Rocket Name:</strong> {{ data.rocket.rocket_name }}</p>
+              <p><strong>Launch Year:</strong> {{ data.launch_year }}</p>
+              <p>
+                <strong>Successful Launch:</strong>
+                {{ data.launch_success ? "Yes" : "No" }}
+              </p>
+              <p>
+                <strong>Successful Landing:</strong>
+                {{
+                  data.rocket.first_stage.cores[0].landing_intent
+                    ? "Yes"
+                    : "No Data"
+                }}
+              </p>
+            </div>
+          </a>
+        </div>
+      </ng-container>
+    </section>
+
+    <!-- No Missions Found Message -->
+    <ng-template #noMissions>
+      <div class="no-results">
+        <p>No missions found for the selected filter.</p>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Paginator -->
+  <div class="paginator-container">
+    <mat-paginator
+      [length]="listMission.length"
+      [pageSize]="6"
+      [pageSizeOptions]="[6]"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <p>© {{ currentYear }} SpaceX Explorer. Designed By 101296759</p>
+</footer>

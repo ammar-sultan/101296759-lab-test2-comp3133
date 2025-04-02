@@ -1,0 +1,67 @@
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a routerLink="/" class="navbar-brand">Ammar Sultan's Lab Test 02</a>
+      <div class="navbar-buttons">
+        <a routerLink="/" class="back-button">Home</a>
+        <a routerLink="/filter" class="filter-button">Filters</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="page-container">
+      <header class="page-header">
+        <h1>SpaceX Mission Details</h1>
+      </header>
+
+      <div class="mission-details-card">
+        <div class="above_content">
+          <div class="image">
+            <img
+              src="{{ singleMission.links.mission_patch_small }}"
+              alt="{{ singleMission.rocket.rocket_name }}"
+            />
+          </div>
+          <div class="mission_info">
+            <h2>Mission - {{ singleMission.mission_name }}</h2>
+            <p><strong>Name:</strong> {{ singleMission.mission_name }}</p>
+            <p><strong>Launch Year:</strong> {{ singleMission.launch_year }}</p>
+            <h2>Rocket</h2>
+            <p><strong>Name:</strong> {{ singleMission.rocket.rocket_name }}</p>
+            <p><strong>Type:</strong> {{ singleMission.rocket.rocket_type }}</p>
+            <h2>Launch Site</h2>
+            <p>
+              <strong>Name:</strong>
+              {{ singleMission.launch_site.site_name_long }}
+            </p>
+          </div>
+        </div>
+
+        <div class="under_content">
+          <h2>Launch Details</h2>
+          <p>{{ singleMission.details }}</p>
+          <h2>More info on Launch Details</h2>
+          <div class="icon">
+            <a href="{{ singleMission.links.article_link }}" target="_blank"
+              ><mat-icon>newspaper</mat-icon></a
+            >
+            <a href="{{ singleMission.links.video_link }}" target="_blank"
+              ><mat-icon>videocam</mat-icon></a
+            >
+            <a href="{{ singleMission.links.wikipedia }}" target="_blank"
+              ><mat-icon>public</mat-icon></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>© {{ currentYear }} SpaceX Explorer. Designed By 101296759</p>
+  </footer>
+</div>
