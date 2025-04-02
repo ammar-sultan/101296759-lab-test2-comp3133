@@ -1,6 +1,6 @@
 # 101296759 Lab Test2 - COMP3133
 
-## Screenshots
+## Preview
 
 ![Home Page](screenshots/home-page.png)
 ![Filters Page](screenshots/filters-page.png)
@@ -83,4 +83,4 @@ Follow these steps to set up and run the application locally:
 
 4. **Access the Application:**
 
-   Open your browser and navigate to http://localhost:4200/. css Copy
+   Open your browser and navigate to http://localhost:4200/
