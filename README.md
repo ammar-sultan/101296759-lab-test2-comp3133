@@ -7,7 +7,7 @@
 ![Details Page](screenshots/details-page.png)
 
 <!-- Live Demo Button -->
-<a href="YOUR_LIVE_APP_LINK" target="_blank">
+<a href="https://ammarsultan-labtest.vercel.app/" target="_blank">
   <button>View Live Demo</button>
 </a>
 
